@@ -1,9 +1,15 @@
-export const config: WebdriverIO.Config = {
+import { platform } from "os";
+
+export const config = {
     //
     // ====================
     // Runner Configuration
     // ====================
     //
+    runner: 'local',
+    hostname: 'localhost',
+    port: 4444,
+    path: '/',
     //
     // ==================
     // Specify Test Files
@@ -57,7 +63,8 @@ export const config: WebdriverIO.Config = {
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        browserVersion: 'latest',
+        acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -177,7 +184,9 @@ export const config: WebdriverIO.Config = {
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-        ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: false,
+
+        retry: 0
     },
     
     //
