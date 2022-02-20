@@ -3,36 +3,36 @@ import Page from './page';
 /**
  * sub page containing specific selectors and methods for a specific page
  */
-class LoginPage extends Page {
+class CampaignsPage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () { return $('#username') }
-    get inputPassword () { return $('#password') }
-    get btnSubmit () { return $('button[type="submit"]') }
     get menuBar () { return $('#menu_button') }
-    get logoutbutton () { return $('//*[@id="username"]/a') }
+    get logoutButton () { return $('//*[@id="username"]/a') }
     get campaignManagementLink () { return $('//*[@id="menu"]/ul/li[1]/a') }
     get menuDisplay () { return $('#menu') }
     get newCampignButton () { return $('/html/body/div[7]/div[2]/span/a') }
     get backToCampaignsLink () { return $('/html/body/div[7]/a') }
 
+    // Update Campaigns Form
+    get nameField () { return $('#campaign_name') }
+    get saleForceOpportunityIdField () { return $('#campaign_salesforce_opportunity_id') }
+    get selfServiceAccountIdField () { return $('#campaign_self_service_account_id') }
+    get descriptionField () { return $('#campaign_description') }
+    get contentCategoryDropDown () { return $('#campaign_content_category_id') }
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
      */
-    async login (username: string, password: string) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
+   async selectContentCategoryDropDownValue (content: string) {
+       await this.contentCategoryDropDown.selectByVisibleText(content)
+   }
 
     /**
      * overwrite specifc options to adapt it to page object
      */
-    open () {
-        return super.open('login');
-    }
+
 }
 
-export default new LoginPage();
+export default new CampaignsPage();

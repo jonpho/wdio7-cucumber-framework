@@ -8,6 +8,7 @@ export default class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open (path: string) {
-        return browser.url(`https://the-internet.herokuapp.com/${path}`)
+        return browser.url("https://otto_tester:e912c5bfb5af140ed246f7eeaad35d9b@jonathan-phos-macbook-pro.junlabs.com/admin/administration/reset_static_assets")
     }
+    
 }

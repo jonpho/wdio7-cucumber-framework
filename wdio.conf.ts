@@ -101,7 +101,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://otto_tester:e912c5bfb5af140ed246f7eeaad35d9b@jonathan-phos-macbook-pro.junlabs.com/admin/administration/reset_static_assets',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -139,7 +139,15 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec','junit',['allure', {outputDir: 'allure-results'}]],
+    reporters: [
+        'spec',
+        ['junit', {
+            outputDir: 'reports/junit-reports'
+        }],
+        ['allure', {
+            outputDir: 'reports/allure-results'
+        }]
+    ],
     
     autoCompileOpts: {
         autoCompile: true,
